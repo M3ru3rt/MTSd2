@@ -1,0 +1,78 @@
+DemoBlaze Automation Test Cases Description
+==========================================
+
+1. Test Case: User Registration
+--------------------------------
+Steps to Automate:
+1. Open Chrome browser and navigate to https://www.demoblaze.com
+2. Verify homepage loads successfully
+3. Click on "Sign up" link in navigation bar
+4. Wait for signup modal to appear
+5. Enter randomly generated username in username field
+6. Enter valid password in password field
+7. Click "Sign up" button
+8. Handle registration success alert
+9. Verify modal closes after successful registration
+10. Capture screenshot of successful registration
+
+2. Test Case: Valid User Login
+-------------------------------
+Steps to Automate:
+1. Open Chrome browser and navigate to https://www.demoblaze.com
+2. Click on "Log in" link in navigation bar
+3. Wait for login modal to appear
+4. Enter valid username (from test data) in username field
+5. Enter valid password (from test data) in password field
+6. Click "Log in" button
+7. Verify welcome message appears with username
+8. Capture screenshot of successful login
+
+3. Test Case: User Logout
+-------------------------
+Steps to Automate:
+1. Perform successful login (from Test Case 2)
+2. Wait for navigation bar to update with logout option
+3. Click on "Log out" link
+4. Verify login link reappears in navigation bar
+5. Verify welcome message disappears
+6. Capture screenshot after logout
+
+4. Test Case: Invalid Login Attempt
+----------------------------------
+Steps to Automate:
+1. Open Chrome browser and navigate to https://www.demoblaze.com
+2. Click on "Log in" link in navigation bar
+3. Enter invalid username in username field
+4. Enter invalid password in password field
+5. Click "Log in" button
+6. Verify error alert appears
+7. Handle alert dialog
+8. Capture screenshot of error message
+
+Technical Implementation Notes:
+------------------------------
+1. All test cases should:
+   - Use explicit waits instead of fixed sleeps
+   - Include proper error handling
+   - Capture screenshots on failure
+   - Clean up sessions after completion
+
+2. Required Locators (in locators.py):
+   - Sign up link
+   - Login link
+   - Logout link
+   - Username/password fields
+   - Modal dialogs
+   - Action buttons
+   - Welcome message element
+
+3. Test Data (in testData.py):
+   - Valid test credentials
+   - Invalid test credentials
+   - Base URL
+   - Browser configuration
+
+4. Execution:
+   - Tests can be run individually or as suite
+   - HTML reports will be generated automatically
+   - Screenshots embedded in reports for failures
