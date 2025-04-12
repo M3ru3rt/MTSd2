@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.7 on darwin)" generated="2025-04-12T15:48:54.505793" rpa="false" schemaversion="5">
+<suite id="s1" name="Saucedemo Test" source="/Users/balgabekzhaksylyk/PycharmProjects/ass/saucedemo_test.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-12T15:48:54.608408" level="INFO">&amp;{caps} = { browserName=chrome | browser_version=latest | os=Windows | os_version=10 | name=RobotFramework Test }</msg>
+<var>&amp;{caps}</var>
+<arg>browserName=${BROWSER}</arg>
+<arg>browser_version=latest</arg>
+<arg>os=Windows</arg>
+<arg>os_version=10</arg>
+<arg>name=RobotFramework Test</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-12T15:48:54.608211" elapsed="0.000219"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-12T15:48:54.608706" level="WARN">desired_capabilities has been deprecated and removed. Please use options to configure browsers as per documentation.</msg>
+<msg time="2025-04-12T15:48:54.608756" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/' through remote server at 'https://bsuser_q7lyHg:wMyMvNceUse7NHpyE79A@hub-cloud.browserstack.com/wd/hub'.</msg>
+<msg time="2025-04-12T15:49:02.952792" level="INFO">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/selenium/webdriver/remote/remote_connection.py:418: UserWarning: Embedding username and password in URL could be insecure, use ClientConfig instead
+  headers = self.get_remote_connection_headers(parsed_url, self._client_config.keep_alive)</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>remote_url=${REMOTE_URL}</arg>
+<arg>desired_capabilities=${caps}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-12T15:48:54.608528" elapsed="8.345294"/>
+</kw>
+<status status="PASS" start="2025-04-12T15:48:54.607818" elapsed="8.347086"/>
+</kw>
+<test id="s1-t1" name="Login With Valid User" line="14">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=user-name</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-12T15:49:02.957476" elapsed="1.316138"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T15:49:04.275440" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>standard_user</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T15:49:04.274620" elapsed="1.107132"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T15:49:05.383092" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>secret_sauce</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T15:49:05.382451" elapsed="0.866229"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-12T15:49:06.250798" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T15:49:06.249680" elapsed="1.085127"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-04-12T15:49:07.596152" level="INFO">Current page contains element 'xpath://span[text()='Products']'.</msg>
+<arg>xpath://span[text()='Products']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-04-12T15:49:07.335653" elapsed="0.261019"/>
+</kw>
+<status status="PASS" start="2025-04-12T15:49:02.955556" elapsed="4.641927"/>
+</test>
+<test id="s1-t2" name="Login With Invalid User" line="21">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-04-12T15:49:14.005889" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-12T15:49:14.006668" level="FAIL">Element 'id=user-name' not visible after 5 seconds.</msg>
+<arg>id=user-name</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-12T15:49:07.599578" elapsed="6.410315">Element 'id=user-name' not visible after 5 seconds.</status>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=user-name</arg>
+<arg>wrong_user</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-12T15:49:14.010496" elapsed="0.000095"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>wrong_pass</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-12T15:49:14.010879" elapsed="0.000089"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-12T15:49:14.011201" elapsed="0.000071"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Epic sadface</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-04-12T15:49:14.011502" elapsed="0.000051"/>
+</kw>
+<status status="FAIL" start="2025-04-12T15:49:07.598258" elapsed="6.413595">Element 'id=user-name' not visible after 5 seconds.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-12T15:49:14.012712" elapsed="1.555910"/>
+</kw>
+<status status="FAIL" start="2025-04-12T15:48:54.506428" elapsed="21.062363"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Saucedemo Test" id="s1" pass="1" fail="1" skip="0">Saucedemo Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-12T15:48:54.608706" level="WARN">desired_capabilities has been deprecated and removed. Please use options to configure browsers as per documentation.</msg>
+</errors>
+</robot>

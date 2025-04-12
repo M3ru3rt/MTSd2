@@ -1,0 +1,23 @@
+Test Case 1: Login With Valid User
+Steps:
+- Open https://www.saucedemo.com
+- Enter username: standard_user
+- Enter password: secret_sauce
+- Click login
+- Verify user lands on the Products page
+
+Test Case 2: Login With Invalid User
+Steps:
+- Enter username: wrong_user
+- Enter password: wrong_pass
+- Click login
+- Verify error message is shown: "Epic sadface"
+
+Browsers tested:
+- Chrome
+- Firefox
+- Safari
+
+Tools Used:
+- Robot Framework
+- BrowserStack
